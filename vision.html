@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neo City Vision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0f1c;
+      color: #e0e7ff;
+      scroll-behavior: smooth;
+    }
+    .bg-neo-gradient {
+      background-image: linear-gradient(to right, #0d0f1c, #1a2035);
+    }
+    .border-neon {
+      border-color: #4a5568;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+    }
+    .btn-neon {
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    }
+    .btn-neon:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 20px rgba(100, 255, 218, 0.8), 0 0 30px rgba(100, 218, 255, 0.6);
+    }
+    .text-neon-cyan {
+      color: #64ffda;
+      text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+    }
+    .text-neon-blue {
+      color: #4dd0e1;
+      text-shadow: 0 0 10px rgba(77, 208, 225, 0.6);
+    }
+    .vision-img-container {
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      position: relative;
+    }
+    .vision-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  </style>
+</head>
+<body class="bg-neo-gradient text-gray-100 antialiased">
+
+  <!-- Header -->
+  <header class="h-20 flex items-center p-6 md:px-12 fixed top-0 w-full z-50 bg-neo-gradient bg-opacity-70 backdrop-blur-sm">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-neon-cyan">
+        NEO CITY 2070
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        <a href="homepage.html#about" class="hover:text-neon-cyan transition-colors">About</a>
+        <a href="homepage.html#features" class="hover:text-neon-cyan transition-colors">Features</a>
+        <a href="#" class="hover:text-neon-cyan transition-colors text-neon-cyan">Vision</a>
+        <a href="homepage.html#contact" class="hover:text-neon-cyan transition-colors">Contact</a>
+      </nav>
+      <a href="homepage.html" class="btn-neon px-5 py-2 rounded-full text-sm font-semibold border border-neon text-neon-cyan hover:bg-gray-800 hidden md:block">
+        Back to City
+      </a>
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-neo-gradient z-40 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="flex justify-end p-6">
+      <button id="close-menu-button" class="text-gray-400 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col items-center justify-center space-y-8 text-2xl">
+      <a href="homepage.html#about" class="text-neon-cyan hover:text-white transition-colors">About</a>
+      <a href="homepage.html#features" class="text-neon-cyan hover:text-white transition-colors">Features</a>
+      <a href="#" class="text-neon-cyan hover:text-white transition-colors">Vision</a>
+      <a href="homepage.html#contact" class="text-neon-cyan hover:text-white transition-colors">Contact</a>
+      <a href="homepage.html" class="btn-neon px-8 py-3 rounded-full text-lg font-semibold border border-neon text-neon-cyan mt-12">
+        Back to City
+      </a>
+    </nav>
+  </div>
+
+  <!-- On-page navigation -->
+  <nav class="bg-gray-800 bg-opacity-50 backdrop-blur-sm p-4 sticky top-20 z-40 mt-20">
+    <div class="container mx-auto flex justify-center space-x-6">
+      <a href="#bio-city" class="text-gray-300 hover:text-neon-cyan transition-colors text-sm md:text-base">The Bio-Integrated City</a>
+      <a href="#health-wellness" class="text-gray-300 hover:text-neon-cyan transition-colors text-sm md:text-base">Health & Wellness</a>
+      <a href="#seamless-reality" class="text-gray-300 hover:text-neon-cyan transition-colors text-sm md:text-base">Seamless Reality</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center p-6 md:p-12 text-center relative overflow-hidden">
+      <div class="vision-img-container absolute top-0 left-0 w-full h-full">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2800&auto=format&fit=crop" alt="Futuristic neon cityscape" class="vision-img opacity-20">
+      </div>
+      <div class="relative z-10 bg-black bg-opacity-40 p-8 rounded-xl shadow-lg max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-xl leading-tight">
+          Our Vision for the World in <span class="text-neon-cyan">2070</span>
+        </h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+          Beyond the confines of Neo City, we see a world transformed by technology and compassion, where humanity and nature thrive together.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Bio-Integrated City Section -->
+    <section id="bio-city" class="py-20 md:py-32 bg-gray-900">
+      <div class="container mx-auto px-6 md:px-12">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-neon-blue">
+          The Bio-Integrated City
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <img src="BIOCITY-FRAMEWORK-FOR-NANHAI-ART-CENTRE-CONCEPT.jpg" alt="Futuristic eco-friendly city" class="rounded-2xl border border-gray-700 shadow-xl">
+          </div>
+            <p class="text-lg text-gray-300 mb-6">
+              Cities of 2070 are not just concrete jungles; they are living, breathing ecosystems. Buildings are cloaked in vertical forests and moss walls, acting as natural air purifiers. Our infrastructure is powered by renewable energy sources, and every drop of water is recycled and purified through advanced filtration systems, supporting the vibrant urban flora.
+            </p>
+            <p class="text-lg text-gray-300">
+              The very fabric of the city becomes a symbiotic partner to its inhabitants, providing clean air, fresh produce from integrated vertical farms, and a sense of harmony that was lost in the previous century. It's a testament to our commitment to a <strong>sustainable future</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personalized Health & Wellness Section -->
+    <section id="health-wellness" class="py-20 md:py-32 bg-neo-gradient">
+      <div class="container mx-auto px-6 md:px-12">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-neon-blue">
+          Personalized Health & Wellness
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p class="text-lg text-gray-300 mb-6">
+              Health in 2070 is proactive and personal. Wearable tech, seamlessly integrated into clothing, constantly monitors biometric data, predicting potential health issues before they arise. This data feeds into a city-wide AI that provides personalized health recommendations, from dietary plans to exercise routines.
+            </p>
+            <p class="text-lg text-gray-300">
+              Medicine is no longer one-size-fits-all. Treatments are tailored to an individual's unique genetic makeup and lifestyle, ensuring maximum efficacy with minimal side effects. The focus has shifted from treating disease to cultivating a life of peak wellness.
+            </p>
+          </div>
+          <div>
+            <img src="The-Role-of-Artificial-Intelligence-in-Clinical-Biology-Transforming-Healthcare-and-Accelerating-Innovation.png" alt="AI-driven futuristic healthcare lab" class="rounded-2xl border border-gray-700 shadow-xl">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seamless Reality Section -->
+    <section id="seamless-reality" class="py-20 md:py-32 bg-gray-900">
+      <div class="container mx-auto px-6 md:px-12">
+        <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-neon-blue">
+          Seamless Reality & Knowledge
+        </h2>
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <img src="agumented reality education.webp" alt="Augmented reality futuristic learning" class="rounded-2xl border border-gray-700 shadow-xl">
+          </div>
+          <div>
+            <p class="text-lg text-gray-300 mb-6">
+              The line between the digital and physical world has blurred. Augmented Reality (AR) glasses are as common as wristwatches, projecting stunning visual overlays of information, art, and navigation directly into our field of view. Learning is instantaneous; you can point your glasses at a historic building to see its full history or at a plant to understand its biology.
+            </p>
+            <p class="text-lg text-gray-300">
+              Knowledge is not just accessible; it is seamlessly integrated into our reality. Information is no longer confined to screens but is an active, interactive layer of our daily lives, making the world a more dynamic and engaging place to exist.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neo-gradient py-8">
+      <div class="container mx-auto px-6 md:px-12 text-center text-gray-400 text-sm">
+        <p>&copy; 2070 Neo City 2070. All Rights Reserved.</p>
+        <div class="mt-4 flex justify-center space-x-4">
+          <a href="#" class="hover:text-neon-cyan">Privacy Policy</a>
+          <a href="#" class="hover:text-neon-cyan">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const menuLinks = mobileMenu?.querySelectorAll('a') || [];
+
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+      });
+    }
+    if (closeMenuButton) {
+      closeMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+      });
+    }
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+      });
+    });
+  </script>
+</body>
+</html>

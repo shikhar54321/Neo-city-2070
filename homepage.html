@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo City 2070</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d0f1c;
+            color: #e0e7ff;
+            scroll-behavior: smooth;
+        }
+        .bg-neo-gradient {
+            background-image: linear-gradient(to right, #0d0f1c, #1a2035);
+        }
+        .border-neon {
+            border-color: #4a5568;
+            border-style: solid;
+            border-width: 1px;
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.4);
+        }
+        .btn-neon {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+        .btn-neon:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.8), 0 0 30px rgba(100, 218, 255, 0.6);
+        }
+        .card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(30, 41, 59, 0.6);
+            border-color: rgba(74, 85, 104, 0.3);
+            border-width: 1px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2), 0 5px 10px rgba(100, 218, 255, 0.1);
+        }
+        .city-image-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+        .city-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .text-neon-cyan {
+            color: #64ffda;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+        }
+        .text-neon-blue {
+            color: #4dd0e1;
+            text-shadow: 0 0 10px rgba(77, 208, 225, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-neo-gradient text-gray-100 antialiased">
+
+    <!-- Header -->
+    <header class="p-6 md:px-12 fixed w-full z-50 bg-neo-gradient bg-opacity-70 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-neon-cyan">
+                NEO CITY 2070
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-neon-cyan transition-colors">About</a>
+                <a href="#features" class="hover:text-neon-cyan transition-colors">Features</a>
+                <a href="vision.html" class="hover:text-neon-cyan transition-colors">Vision</a>
+                <a href="#contact" class="hover:text-neon-cyan transition-colors">Contact</a>
+            </nav>
+            <a href="#explore" class="btn-neon px-5 py-2 rounded-full text-sm font-semibold border border-neon text-neon-cyan hover:bg-gray-800 hidden md:block">
+                Explore Now
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-neo-gradient z-40 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-button" class="text-gray-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center space-y-8 text-2xl">
+            <a href="#about" class="text-neon-cyan hover:text-white transition-colors">About</a>
+            <a href="#features" class="text-neon-cyan hover:text-white transition-colors">Features</a>
+            <a href="vision.html" class="text-neon-cyan hover:text-white transition-colors">Vision</a>
+            <a href="#contact" class="text-neon-cyan hover:text-white transition-colors">Contact</a>
+            <a href="#explore" class="btn-neon px-8 py-3 rounded-full text-lg font-semibold border border-neon text-neon-cyan mt-12">
+                Explore Now
+            </a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="h-screen flex items-center justify-center p-6 md:p-12 text-center relative overflow-hidden">
+            <!-- Background video/image -->
+            <div class="city-image-container absolute top-0 left-0 w-full h-full">
+                <img src="https://images.unsplash.com/photo-1594967396113-f47285a8647b?q=80&w=2787&auto=format&fit=crop" alt="Futuristic City" class="city-image opacity-30">
+            </div>
+            <div class="relative z-10 bg-black bg-opacity-40 p-8 rounded-xl shadow-lg">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-xl leading-tight">
+                    Welcome to <span class="text-neon-cyan">Neo City 2070</span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+                    A metropolis where technology and nature coexist. Experience the future of urban living, powered by innovation and designed for harmony.
+                </p>
+                <a href="#features" class="btn-neon px-8 py-4 rounded-full text-lg font-semibold border border-neon text-neon-cyan hover:bg-gray-800">
+                    Discover Our World
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 bg-neo-gradient">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-neon-blue">
+                    The City of Tomorrow
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    
+                    <div>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Neo City 2070 is more than a place to live; it's a testament to human ingenuity. We have built a self-sustaining ecosystem where every aspect of life, from energy and transportation to food and waste management, is meticulously integrated to work in perfect synergy.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            Our architecture blends seamlessly with natural landscapes, featuring towering vertical gardens, sky bridges, and automated pathways that ensure a seamless and tranquil urban experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-neon-blue">
+                    Key Features
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <!-- Feature Card 1: Hyperloop Transit -->
+                    <a href="/hyperloop.html" class="block">
+                        <div class="card p-8 text-center">
+                            <div class="text-5xl text-neon-cyan mb-4">
+                                <span role="img" aria-label="Energy">⚡</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Hyperloop Transit and interplanetary travel</h3>
+                            <p class="text-gray-400">
+                                Travel at incredible speeds between districts, with zero emissions and maximum efficiency.
+                            </p>
+                        </div>
+                    </a>
+                    <!-- Feature Card 2: Vertical Farming -->
+                    <a href="#vertical-farming-info" class="block">
+                        <div class="card p-8 text-center">
+                            <div class="text-5xl text-neon-cyan mb-4">
+                                <span role="img" aria-label="Farming">🌾</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Vertical Farming</h3>
+                            <p class="text-gray-400">
+                                Enjoy fresh, locally-sourced produce grown in our towering vertical farms, reducing food miles to zero.
+                            </p>
+                        </div>
+                    </a>
+                    <!-- Feature Card 3: Smart Habitats -->
+                    <a href="#smart-habitats-info" class="block">
+                        <div class="card p-8 text-center">
+                            <div class="text-5xl text-neon-cyan mb-4">
+                                <span role="img" aria-label="Housing">🏡</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-bold mb-3 text-white">Smart Habitats</h3>
+                            <p class="text-gray-400">
+                                Live in homes that adapt to your needs, conserving energy and providing personalized comfort.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New sections with detailed information for each feature -->
+        <!-- Vertical Farming Section -->
+        <section id="vertical-farming-info" class="py-20 md:py-32 bg-neo-gradient">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-neon-blue">
+                    Vertical Farming: Our Urban Food Source
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="Copy-of-CCN-Case-timeline-1024-x-683-px.png" alt="An indoor vertical farm" class="rounded-2xl border border-gray-700 shadow-xl">
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Neo City 2070 has revolutionized food production with our immense vertical farms. These towering, climate-controlled structures grow fresh, nutritious food year-round, using a fraction of the land and water required by traditional agriculture. We use advanced hydroponic and aeroponic systems to deliver nutrients directly to the plant roots.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            By growing food within the community limits, we eliminate transportation costs and food waste, ensuring every resident has access to the freshest produce possible. It's a key part of our vision for a self-sufficient and sustainable ecosystem.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Habitats Section -->
+        <section id="smart-habitats-info" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-neon-blue">
+                    Smart Habitats: Homes that Think with You
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Our homes are more than just buildings; they are intelligent companions designed for sustainability and comfort. Each habitat is equipped with an integrated system that learns your routines and preferences, automatically adjusting temperature, lighting, and air quality for optimal well-being and energy efficiency. The system anticipates your needs, from managing your energy usage to ensuring your home is always a comfortable sanctuary.
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            This technology not only simplifies daily life but also ensures that every habitat is a cornerstone of our community's sustainability goals. It represents the ultimate fusion of comfort, convenience, and ecological responsibility.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="FWV-Mega-City-Historic-Core.jpg" alt="A modern smart home" class="rounded-2xl border border-gray-700 shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action Section -->
+        <section id="explore" class="py-20 md:py-32 text-center bg-neo-gradient">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white leading-snug">
+                    Ready to live in harmony?
+                </h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
+                    Discover how Neo City 2070 is redefining urban living. Join us in building a sustainable and intelligent tomorrow.
+                </p>
+                <a href="#contact" class="btn-neon px-10 py-5 rounded-full text-xl font-semibold border border-neon text-neon-cyan hover:bg-gray-800">
+                    Join Our Community
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 16px;">
+      Developed by team Breaking Codes<br>
+      Team members: Shikhar Srivastava, Umesh Kumar, and Shivansh Singh
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-x-full');
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        });
+
+        // Close menu on backdrop click
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target === mobileMenu) {
+                mobileMenu.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+</body>
+</html>

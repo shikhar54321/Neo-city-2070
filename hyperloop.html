@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperloop Transit - Neo City 2070</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            background-color: #111827;
+            color: #e0e7ff;
+            scroll-behavior: smooth;
+        }
+        .bg-neo-gradient {
+            background-image: linear-gradient(to right, #111827, #1e293b);
+        }
+        .border-neon {
+            border-color: #4b5563;
+            border-style: solid;
+            border-width: 1px;
+            box-shadow: 0 0 15px rgba(129, 140, 248, 0.4);
+        }
+        .btn-neon {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(129, 140, 248, 0.5);
+        }
+        .btn-neon:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.8), 0 0 30px rgba(165, 180, 252, 0.6);
+        }
+        .card {
+            backdrop-filter: blur(10px);
+            background-color: rgba(30, 41, 59, 0.6);
+            border-color: rgba(74, 85, 104, 0.3);
+            border-width: 1px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(129, 140, 248, 0.2), 0 5px 10px rgba(165, 180, 252, 0.1);
+        }
+        .text-neon-cyan {
+            color: #818cf8;
+            text-shadow: 0 0 10px rgba(129, 140, 248, 0.6);
+        }
+        .text-neon-blue {
+            color: #a5b4fc;
+            text-shadow: 0 0 10px rgba(165, 180, 252, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-neo-gradient text-gray-100 antialiased">
+
+    <!-- Header -->
+    <header class="p-6 md:px-12 fixed w-full z-50 bg-neo-gradient bg-opacity-70 backdrop-blur-sm">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-neon-cyan">
+                NEO CITY 2070
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="/homepage.html" class="hover:text-neon-cyan transition-colors">Home</a>
+                <a href="#specifications" class="hover:text-neon-cyan transition-colors">Specifications</a>
+                <a href="#routes" class="hover:text-neon-cyan transition-colors">Routes</a>
+            </nav>
+            <a href="/homepage.html" class="btn-neon px-5 py-2 rounded-full text-sm font-semibold border border-neon text-neon-cyan hover:bg-gray-800 hidden md:block">
+                Back to City
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full bg-neo-gradient z-40 transform -translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-button" class="text-gray-400 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col items-center justify-center space-y-8 text-2xl">
+            <a href="homepage.html" class="text-neon-cyan hover:text-white transition-colors">Home</a>
+            <a href="#specifications" class="text-neon-cyan hover:text-white transition-colors">Specifications</a>
+            <a href="#routes" class="text-neon-cyan hover:text-white transition-colors">Routes</a>
+            <a href="index.html" class="btn-neon px-8 py-3 rounded-full text-lg font-semibold border border-neon text-neon-cyan mt-12">
+                Back to City
+            </a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="h-screen flex items-center justify-center p-6 md:p-12 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <img src="https://images.unsplash.com/photo-1542382025-0d0573e34320?q=80&w=2787&auto=format&fit=crop" alt="Futuristic Hyperloop Pod" class="w-full h-full object-cover object-center opacity-30">
+            </div>
+            <div class="relative z-10 bg-black bg-opacity-40 p-8 rounded-xl shadow-lg">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-xl leading-tight">
+                    Hyperloop Transit and Interplanetary Travel
+                    
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+                    Hyperloop is not just urban mobility—it's the gateway to interplanetary travel. Powered by advanced SpaceX polar transport systems, Neo City connects continents and planets alike, enabling rapid journeys across Earth and seamless transit to lunar and Martian colonies. Experience a future where distance is no longer a barrier, and the cosmos is within reach.
+                </p>
+                <a href="#specifications" class="btn-neon px-8 py-4 rounded-full text-lg font-semibold border border-neon text-neon-cyan hover:bg-gray-800">
+                    Learn More
+                </a>
+            </div>
+        </section>
+
+        <!-- Specifications and Management Section -->
+        <section id="specifications" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-neon-blue">
+                    System Specifications
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Hyperloop pods are engineered for maximum efficiency and speed. Operating in a near-vacuum environment, they eliminate air resistance, allowing for speeds of up to 1,220 km/h. The pods are propelled by a linear induction motor, with magnetic levitation ensuring a frictionless ride. This technology not only dramatically reduces travel time but also creates a whisper-quiet journey for passengers. 
+                        </p>
+                        <p class="text-lg text-gray-300">
+                            The network is managed by a sophisticated AI known as **Nexus-AI**. This system dynamically adjusts pod speeds and routes to ensure a seamless flow of traffic and zero-delay schedules. In the event of an anomaly, Nexus-AI reroutes pods and dispatches maintenance drones in real-time. Power is sourced entirely from renewable energy, with solar and wind farms integrated along the network's route, making Hyperloop a cornerstone of sustainable transportation.
+                        </p>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+        <!-- Famous World Routes Section -->
+        <section id="routes" class="py-20 md:py-32 bg-neo-gradient">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-16 text-neon-blue">
+                    Famous World Routes
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Route Card 1 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Los Angeles to San Francisco</h3>
+                        <p class="text-sm text-gray-400 mb-4">A classic route, completed in a mere 30 minutes.</p>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan mb-2">
+                            <span role="img" aria-label="Speed">🚀</span>
+                            <span>Speed: 760 mph</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan">
+                            <span role="img" aria-label="Distance">🗺️</span>
+                            <span>Distance: 380 miles</span>
+                        </div>
+                    </div>
+
+                    <!-- Route Card 2 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-2 text-white">New York to Washington D.C.</h3>
+                        <p class="text-sm text-gray-400 mb-4">A vital eastern corridor, connecting two major hubs.</p>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan mb-2">
+                            <span role="img" aria-label="Speed">🚀</span>
+                            <span>Speed: 700 mph</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan">
+                            <span role="img" aria-label="Distance">🗺️</span>
+                            <span>Distance: 200 miles</span>
+                        </div>
+                    </div>
+
+                    <!-- Route Card 3 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-2 text-white">London to Paris</h3>
+                        <p class="text-sm text-gray-400 mb-4">The ultimate cross-channel journey in a flash.</p>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan mb-2">
+                            <span role="img" aria-label="Speed">🚀</span>
+                            <span>Speed: 750 mph</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan">
+                            <span role="img" aria-label="Distance">🗺️</span>
+                            <span>Distance: 213 miles</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Route Card 4 -->
+                    <div class="card p-8">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Tokyo to Osaka</h3>
+                        <p class="text-sm text-gray-400 mb-4">A futuristic Shinkansen, connecting Japan's largest metropolises.</p>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan mb-2">
+                            <span role="img" aria-label="Speed">🚀</span>
+                            <span>Speed: 680 mph</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-lg text-neon-cyan">
+                            <span role="img" aria-label="Distance">🗺️</span>
+                            <span>Distance: 248 miles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-20 md:py-32 text-center bg-gray-900">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white leading-snug">
+                    Experience the future of travel.
+                </h2>
+                <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
+                    Discover how Hyperloop is making the world smaller and more accessible, one city at a time.
+                </p>
+                <a href="index.html" class="btn-neon px-10 py-5 rounded-full text-xl font-semibold border border-neon text-neon-cyan hover:bg-gray-800">
+                    Explore Neo City
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neo-gradient py-8">
+        <div class="container mx-auto px-6 md:px-12 text-center text-gray-400 text-sm">
+            <p>&copy; 2070 Neo City 2070. All Rights Reserved.</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="#" class="hover:text-neon-cyan">Privacy Policy</a>
+                <a href="#" class="hover:text-neon-cyan">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-x-full');
+        });
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        });
+
+        // Close menu on backdrop click
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target === mobileMenu) {
+                mobileMenu.classList.add('-translate-x-full');
+            }
+        });
+    </script>
+
+</body>
+</html>
